@@ -1,0 +1,35 @@
+        body {
+            background: #f0f4f8;
+            color: #333;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-custom {
+            border-radius: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #chamada {
+            background: linear-gradient(180deg, #7F7FD5 0%, #91EAE4 100%);
+            color: #fff;
+            padding: 2rem 1rem;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            text-align: center;
+        }
+
+        section {
+            padding: 2rem 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }

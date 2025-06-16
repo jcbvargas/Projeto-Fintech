@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>0Fin</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#chamada">
+                <i class="bi bi-coin fs-3 text-warning me-1"></i>
+                <span>Fin</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacao">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navegacao">
+                <button class="btn btn-outline-primary btn-sm me-2">Entrar</button>
+                <button class="btn btn-primary btn-sm">Cadastrar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chamada -->
+    <section id="chamada">
+        <h2 class="fw-bold d-flex justify-content-center align-items-center">
+            <i class="bi bi-coin fs-2 text-warning me-2"></i>
+            <span>Fin</span>
+        </h2>
+        <p>O App que te ajuda a investir naquilo que importa: <strong>Tempo!</strong></p>
+    </section>
+
+    <!-- Metas - Esperado/Obersavado -->
+    <section id="meta" class="container">
+        <h2 class="mb-4">Bem-vindo, Julio!</h2>
+        <div class="card card-custom mb-4">
+            <div class="card-body">
+                <h6 class="text-muted">Saldo Atual Consolidado</h6>
+                <h3>R$ 9.999,99</h3>
+                <div class="row align-items-center mt-3">
+                    <div class="col-5 text-center">
+                        <div style="width:140px; height:140px; margin:auto;"><canvas id="esperado"></canvas></div>
+                        <p class="mt-2 mb-0">Meta <strong>90%</strong></p>
+                    </div>
+                    <div class="col-7">
+                        <p><strong>Próximos 15 dias</strong></p>
+                        <ul class="list-unstyled mb-0">
+                            <li>Receitas: <span class="text-success">R$ 3.000,00</span></li>
+                            <li>Despesas: <span class="text-danger">R$ 2.500,00</span></li>
+                            <li>Meta: R$ 556,00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extratos -->
+    <section id="extrato" class="container">
+        <div class="section-header">
+            <h2>Extrato</h2>
+            <select class="form-select w-auto">
+                <option>Mês atual</option>
+                <option>Julho</option>
+                <option>Agosto</option>
+            </select>
+        </div>
+        <div class="card card-custom mb-3">
+            <div class="card-body">
+                <h6 class="text-muted mb-1">Saldo Disponível</h6>
+                <h4>R$ 3.950,00</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card card-custom mb-3">
+                    <div class="card-body">
+                        <h6>Receitas</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-receipt-cutoff me-2"></i><small>04/06 </small>Proventos</div>
+                                <span class="text-success">R$ 6.400,00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-coin me-2"></i><small>10/06 </small>Dividendos</div>
+                                <span class="text-success">R$ 100,00</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-success btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#Receita">
+                            <i class="bi bi-plus-circle me-1"></i>Nova Receita
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card card-custom mb-3">
+                    <div class="card-body">
+                        <h6>Despesas</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-cash-coin me-2"></i><small>07/06 </small>Financiamento</div>
+                                <span class="text-danger">R$ 1.500,00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-lightning-charge me-2"></i><small>07/06 </small>Conta de Luz</div>
+                                <span class="text-danger">R$ 250,00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-building me-2"></i><small>10/06 </small>Condomínio</div>
+                                <span class="text-danger">R$ 800,00</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-danger btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#Despesa">
+                            <i class="bi bi-plus-circle me-1"></i>Nova Despesa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controle de investimentos -->
+    <section id="investimentos" class="container mb-5">
+        <div class="section-header">
+            <h2>Investimentos</h2>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Investimento">
+                <i class="bi bi-plus-circle me-1"></i>Novo Investimento
+            </button>
+        </div>
+        <div class="card card-custom mb-3">
+            <div class="card-body">
+                <h6 class="text-muted mb-1">Saldo Atual</h6>
+                <h4>R$ 9.999,99</h4>
+            </div>
+        </div>
+        <div class="card card-custom mb-3">
+            <div class="card-body">
+                <h6 class="mb-2">Volume Investido</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-3"><strong>LCA</strong></div>
+                            <div class="col-md-6 text-muted"><small>Banco XYZ // Vencimento 17/10</small></div>
+                            <div class="col-md-3 text-end text-success">R$ 30.000,00</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-3"><strong>Fundo RF</strong></div>
+                            <div class="col-md-6 text-muted"><small>Banco KTD // Vencimento 26/11</small></div>
+                            <div class="col-md-3 text-end text-success">R$ 15.000,00</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pop-ups de registro -->
+    <div class="modal fade" id="Receita" tabindex="-1" aria-labelledby="reg-receita" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reg-receita">Nova Receita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input type="number" class="form-control" placeholder="R$">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Data do recebimento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <input type="text" class="form-control" placeholder="Ex: Salário">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-success btn-sm">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Despesa" tabindex="-1" aria-labelledby="reg-despesa" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reg-despesa">Nova Despesa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input type="number" class="form-control" placeholder="R$">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Data do pagamento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <input type="text" class="form-control" placeholder="Ex: Conta de Luz">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-danger btn-sm">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Investimentos" tabindex="-1" aria-labelledby="reg-investimento" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reg-investimento">Novo Investimento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo</label>
+                            <input type="text" class="form-control" placeholder="Ex: LCA">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input type="number" class="form-control" placeholder="R$">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Data da Emissão</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Data do Vencimento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Instituição</label>
+                            <input type="text" class="form-control" placeholder="Ex: Banco XYZ">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary btn-sm">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const ctx = document.getElementById('esperado').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: { labels: ['Atingida', 'Restante'], datasets: [{ data: [90, 10], backgroundColor: ['#198754', ''] }] },
+            options: { cutout: '60%', plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+        });
+    </script>
+</body>
+
+</html>
